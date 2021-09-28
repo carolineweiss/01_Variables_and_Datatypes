@@ -16,10 +16,10 @@ public class ExercisesTest {
 	 */
 	@Test
 	public void sleepIn() {
-		assertEquals("sleepIn(false, false)", true, exercises.sleepIn(false, false));
-		assertEquals("sleepIn(true, false)", false, exercises.sleepIn(true, false));
-		assertEquals("sleepIn(false, true)", true, exercises.sleepIn(false, true));
-		assertEquals("sleepIn(true, true)", true, exercises.sleepIn(true, true));
+		assertEquals("Input: sleepIn(false, false)", true, exercises.sleepIn(false, false));
+		assertEquals("Input: sleepIn(true, false)", false, exercises.sleepIn(true, false));
+		assertEquals("Input: sleepIn(false, true)", true, exercises.sleepIn(false, true));
+		assertEquals("Input: sleepIn(true, true)", true, exercises.sleepIn(true, true));
 	}
 
 	/*
@@ -45,11 +45,11 @@ public class ExercisesTest {
 		assertEquals("Input: sumDouble(1, 2)", 3, exercises.sumDouble(1, 2));
 		assertEquals("Input: sumDouble(3, 2)", 5, exercises.sumDouble(3, 2));
 		assertEquals("Input: sumDouble(2, 2)", 8, exercises.sumDouble(2, 2));
-		assertEquals("Input: sumDouble(2, 2)", -1, exercises.sumDouble(-1, 0));
-		assertEquals("Input: sumDouble(2, 2)", 12, exercises.sumDouble(3, 3));
-		assertEquals("Input: sumDouble(2, 2)", 0, exercises.sumDouble(0, 0));
-		assertEquals("Input: sumDouble(2, 2)", 1, exercises.sumDouble(0, 1));
-		assertEquals("Input: sumDouble(2, 2)", 7, exercises.sumDouble(3, 4));
+		assertEquals("Input: sumDouble(-1, 0)", -1, exercises.sumDouble(-1, 0));
+		assertEquals("Input: sumDouble(3, 3)", 12, exercises.sumDouble(3, 3));
+		assertEquals("Input: sumDouble(0, 0)", 0, exercises.sumDouble(0, 0));
+		assertEquals("Input: sumDouble(0, 1)", 1, exercises.sumDouble(0, 1));
+		assertEquals("Input: sumDouble(3, 4)", 7, exercises.sumDouble(3, 4));
 	}
 
 	/*
@@ -216,7 +216,7 @@ public class ExercisesTest {
 		assertEquals("Input: intMax(1, 3, 2)", 3, exercises.intMax(1, 3, 2));
 		assertEquals("Input: intMax(3, 2, 1)", 3, exercises.intMax(3, 2, 1));
 		assertEquals("Input: intMax(4, 4, 1)", 4, exercises.intMax(4, 4, 1));
-		assertEquals("Input: intMax(5, 3, 5)", 5, exercises.intMax(5, 2, 5));
+		assertEquals("Input: intMax(5, 2, 5)", 5, exercises.intMax(5, 2, 5));
 		assertEquals("Input: intMax(3, 5, 5)", 5, exercises.intMax(3, 5, 5));
 		assertEquals("Input: intMax(9, 1, 1)", 9, exercises.intMax(9, 1, 1));
 		assertEquals("Input: intMax(9, 9, 9)", 9, exercises.intMax(9, 9, 9));

@@ -19,7 +19,7 @@ After completing this exercise, you'll be able to:
 * Code is presented in a clean, organized format.
 * Code is appropriately encapsulated.
 * Polymorphism is used appropriately to avoid code duplication.
-* The code meets the specifications defined below.
+* The code meets the specifications defined in the remainder of this document.
 
 ### Bank customer application
 
@@ -32,9 +32,9 @@ After completing this exercise, you'll be able to:
 
 This code is from the Inheritance day. The bank account classes work well, but now the bank needs to calculate a customer's total assets to assign them VIP status if they have $25,000 or more in assets at the bank.
 
-The bank is also introducing credit cards. Since credit cards aren't strictly bank accounts where money is stored, they don't inherit from the `BankAccount` class. However, they must still be accounted for in the VIP calculation.
+The bank is also introducing credit cards. Since credit cards aren't strictly bank accounts that store money, they don't inherit from the `BankAccount` class. However, you must still account for them in the VIP calculation.
 
-For this exercise, you'll add new features to the code to create a `BankCustomer` class that has multiple accounts. You'll also create a new type of account: a credit card account. A credit card account isn't a `BankAccount`, but it needs to be stored with the customer as one of their accounts. To do this, you need to create a new interface that specifies that an object is `Accountable` and has a `getBalance()` method.
+For this exercise, you'll add new features to the code to create a `BankCustomer` class that has multiple accounts. You'll also create a new type of account: a credit card account. A credit card account isn't a `BankAccount`, but you must store it with the customer as one of their accounts. To do this, you need to create a new interface that specifies that an object is `Accountable` and has a `getBalance()` method.
 
 ![class diagram](./bank-account-java.png)
 
@@ -103,14 +103,14 @@ Implement the `BankCustomer` class. A bank customer "has-a" list of `Accountable
 | `name`         | `String`            | X   | X   | The account holder name that the account belongs to. |
 | `address`      | `String`            | X   | X   | The address of the customer.                         |
 | `phoneNumber`  | `String`            | X   | X   | The phone number of the customer.                    |
-| `accounts`     | `List<Accountable>` | X (see below)  |     | The customer's list of Accountables.     |
+| `accounts`     | `List<Accountable>` | X\*   |     | The customer's list of Accountables.     |
 
 | Method Name                          | Return Type | Description                                           |
 | ------------------------------------ | ----------- | ----------------------------------------------------- |
 | `getAccounts()`                      | `Accountable[]` | Returns an array of the customer's accounts.
 | `addAccount(Accountable newAccount)` | `void`      | Adds `newAccount` to the customer's list of accounts. |
 
-Note: The `getAccounts()` method returns an array, but since you need to add accounts whenever the `addAccount()` method is called, you'll use a `List` to store the accounts.
+\* Note: The `getAccounts()` method returns an array, but since you need to add accounts whenever the `addAccount()` method is called, you'll use a `List` to store the accounts.
 
 #### Step Six: Add the `isVip()` method to the `BankCustomer` class
 

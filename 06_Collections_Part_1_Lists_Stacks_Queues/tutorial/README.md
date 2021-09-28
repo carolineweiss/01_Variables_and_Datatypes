@@ -75,12 +75,14 @@ Find the third comment in `Tutorial.java`. You'll add your code after this line:
 // Step Three: Looping through a List in a for loop
 ```
 
-You can print out each of these elements using a `for` loop. `List` items are also indexed starting at `0`, like arrays.
+You can print out each of these elements using a for loop. `List` items are also indexed starting at `0`, like arrays.
 
-If you wanted to loop through an array, your `for` loop would look like this:
+If you wanted to loop through an array, your for loop would look like this:
 
 ```java
-for (int i = 0; i < nameArray.length; i++)
+for (int i = 0; i < nameArray.length; i++) {
+
+}
 ```
 
 When using a `List`, you can find out how many elements it contains with the `size()` method:
@@ -91,7 +93,7 @@ for (int i = 0; i < nameList.size(); i++) {
 }
 ```
 
-Then within the `for` loop, you can print out each element with its index. Use the `get()` method and the index to access each element, like you would with an array:
+Then within the for loop, you can print out each element with its index. Use the `get()` method and the index to access each element, like you would with an array:
 
 ```java
 for (int i = 0; i < nameList.size(); i++) {
@@ -132,19 +134,19 @@ nameList.remove(0);
 
 Choose *one* of the methods—passing the list item or passing the index of the item—and place it after the fourth comment. You'll confirm that the item was removed in the next step.
 
-## Step Five: Loop through `List` in a for-each loop
+## Step Five: Loop through `List` in a foreach loop
 
 Find the fifth comment in `Tutorial.java`. You'll add your code after this line:
 
 ```java
-// Step Five: Looping through List in a for-each loop
+// Step Five: Looping through List in a foreach loop
 ```
 
-For-each loops aren't limited to Collections objects. You can use them with arrays, too.
+foreach loops aren't limited to Collections objects. You can use them with arrays, too.
 
-One advantage of using the for-each loop is that you don't need to keep track of an index. Instead, the for-each loop assigns the current item to a temporary variable that's available only in the loop.
+One advantage of using the foreach loop is that you don't need to keep track of an index. Instead, the foreach loop assigns the current item to a temporary variable that's available only in the loop.
 
-You define a for-each loop like this:
+You define a foreach loop like this:
 
 ```java
 for (String name : nameList) {
@@ -172,8 +174,8 @@ Name: Adele
 
 ## Summary
 
-After completing this tutorial, you should understand:
+After completing this tutorial, you understand:
 
 - The differences between a `List` and an array.
 - The common operations of a `List` and how to use them.
-- How to use the for-each loop to iterate through a collection.
+- How to use the foreach loop to iterate through a collection.

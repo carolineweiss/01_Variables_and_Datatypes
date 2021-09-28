@@ -16,7 +16,7 @@ In the `main` method, create a new `int` and name it `i`:
 int i;
 ```
 
-You've been taught to use meaningful names and this may not seem very meaningful. However, for a loop counter, a single character is commonly used. Since you'll often type that variable name three times on one line at the beginning of the loop, brevity is convenient. You don't have to use `i`, but it's a convention that you'll see very often.
+You learned to use meaningful names and this may not seem very meaningful. However, for a loop counter, a single character is commonly used. Since you'll often type that variable name three times on one line at the beginning of the loop, brevity is convenient. You don't have to use `i`, but it's a convention that you'll see very often.
 
 Next, add the following to create a for loop:
 
@@ -30,9 +30,9 @@ Inside the parentheses, there are three things going on:
 
 * `i = 0`: this is the **initializer**. It sets the initial state before the loop runs. Typically, it sets the loop counter—`i` in this case—to the initial value you want to use.
 * `i <= 5`: this is the **condition**. The loop runs as long as this expression evaluates to true.
-* `i++`: this is the **iterator**. After the loop runs, this expression is evaluated. The `++` part means that `i` is incremented by 1 each time.
+* `i++`: this is the **iterator**. After the loop runs, this expression is evaluated. The `++` part means increment `i` by 1 each time.
 
-Looking at the three parts of the loop statement, you can determine that the loop will run six times—for `i` values of `0` through `5`.
+Looking at the three parts of the loop statement, you can determine that the loop runs six times—for `i` values of `0` through `5`.
 
 Next, add this line inside the loop to display the value `i`:
 
@@ -55,7 +55,7 @@ Run the application now. You'll see the values `0` through `5` printed on the co
 
 ## Step Two: Write a for loop that decrements a value
 
-You don't have to always increment a value in a loop. You can also decrement a value.
+You don't always have to increment a value in a loop. You can also decrement a value.
 
 Create another loop after the one you created in the previous step. This time, you'll start the loop counter at `10` and decrement the value to `0`:
 
@@ -65,7 +65,7 @@ for (i = 10; i >= 0; i--) {
 }
 ```
 
-Notice that `i` is assigned the value of `10` at the start of the loop. As long as `i` is greater than or equal to `0`, the loop runs. After each loop, `i` is decremented by 1.
+Notice that you assign `i` the value of `10` at the start of the loop. As long as `i` is greater than or equal to `0`, the loop runs. After each loop, you decrement `i` by 1.
 
 Inside this loop, add a line to display the value of `i` again:
 
@@ -144,9 +144,9 @@ for (i = 0; i < forecastTemperatures.length; i++) {
 }
 ```
 
-In this code, `i` is initialized to `0` again and must be less than `forecastTemperatures.length` for the loop to run. Instead of printing `i`, you're using `i` to access elements in the array.
+In this code, you initialize `i` to `0` because that's the index of the first element in the array. `i` must be less than `forecastTemperatures.length` for the loop to run. Instead of printing `i`, you're using `i` to access elements in the array.
 
-Notice that the condition is `<`, not `<=`. You don't want the loop to run all the way to `5`, because the highest index in the array is `4` since the array counting starts at `0`.
+Notice that the condition is `<`, not `<=`. You don't want the loop to run all the way to `5` because the highest index in the array is `4` since the array counting starts at `0`.
 
 When you run the application, it now displays this after the output from the previous steps:
 
@@ -176,7 +176,7 @@ Next, create an `int` to hold the index of that value:
 int highestTemperatureIndex = 0;
 ```
 
-You're assigning these values to match the first element in the array for the moment and will change them later inside the loop if a higher value is found. In other words, you're assuming the first element is the highest one in the array unless you find a higher element.
+You're assigning these values to match the first element in the array for the moment and will change them later inside the loop if you find a higher value. In other words, you're assuming the first element is the highest one in the array unless you find a higher element.
 
 Next, declare the loop:
 
@@ -186,7 +186,7 @@ for (int j = 1; j < forecastTemperatures.length; j++) {
 }
 ```
 
-Notice that this loop looks different from the previous ones you wrote. This loop uses a different loop counter variable—`j`—and sets the value to 1. It's not `0` because `highestTemperatureValue` already holds the first element, so it doesn't need to be compared to again.
+Notice that this loop looks different from the previous ones you wrote. This loop uses a different loop counter variable—`j`—and sets the value to 1. It's not `0` because `highestTemperatureValue` already holds the first element, so you don't need to compare it again.
 
 > This also shows you that you don't need to declare the loop counter variable first. You can declare it in the loop statement itself.
 
@@ -211,15 +211,15 @@ Add this line after the for loop to display the value of `highestTemperatureValu
 System.out.println("The highest temperature is " + highestTemperatureValue);
 ```
 
-This expression is called **string concatenation**. The Java compiler automatically converts the `int` value of `highestTemperatureValue` to a `String` so it can be combined with the text `The highest temperature is `.
+This expression is called **string concatenation**. The Java compiler automatically converts the `int` value of `highestTemperatureValue` to a `String` so it can combine it with the text `The highest temperature is `.
 
-Then add this line to display how many days it will take to reach that temperature:
+Then add this line to display how many days it takes to reach that temperature:
 
 ```java
 System.out.println("The highest temperature is in " + (highestTemperatureIndex + 1) + " days");
 ```
 
-Notice in this line there's this expression `(highestTemperatureIndex + 1)`. Since array counting starts at `0`, and the forecast is for days *after* today, you don't want to display tomorrow's forecast and say it's today's. So, the value needs to be incremented by 1 when displaying it.
+Notice in this line the expression `(highestTemperatureIndex + 1)`. Since array counting starts at `0`, and the forecast is for days *after* today, you don't want to display tomorrow's forecast and say it's today's. So, you need to increment the value by 1 when displaying it.
 
 When you run the application, it now displays this after the output from the previous steps:
 

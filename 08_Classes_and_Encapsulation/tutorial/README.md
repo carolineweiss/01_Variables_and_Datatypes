@@ -27,19 +27,19 @@ Before moving on to step two, you'll need to run the application to make sure it
 Welcome to the Tech Elevator Bookstore
 ```
 
-The application terminates once it displays the welcome message.
+The application exits once it displays the welcome message.
 
 ## Step Two: Create the `Book` class
 
-Now that you've reviewed the starting code, and confirmed the application runs, it's time to create your first class.
+Now that you've reviewed the starting code and confirmed the application runs, it's time to create your first class.
 
 You'll start with creating a `Book` class. Each instance of the `Book` class holds the information for one book. Each book has a title, an author's name, and a price.
 
-Remember classes combine, or *encapsulate*, *state* (instance variables) and *behavior* (instance methods). Instead of creating separate variables in the program to hold a book's title, author, and price, you keep all details of a book in one place—in a `Book` object.
+Remember that classes combine, or *encapsulate*, *state* (instance variables) and *behavior* (instance methods). Instead of creating separate variables in the program to hold a book's title, author, and price, you keep all details of a book in one place—in a `Book` object.
 
 Open the `src/main/java` folders, and then right-click on the `com.techelevator` package and select **New > Java Class**.
 
-Next, type in `Book` as the name. You don't need to modify the default values. Then, press Enter to create the class.
+Next, type in `Book` as the name. You don't need to modify the default values. Then, press **Enter** to create the class.
 
 ### Create the instance variables
 
@@ -62,9 +62,9 @@ public class Book {
 }
 ```
 
-> Note: `package com.techelevator;` was automatically added for you when the class file was created.
+> Note: `package com.techelevator;` was automatically added for you when you created the class file.
 
-Instance variables are declared `private` to safely *encapsulate* state. This restricts access to the internal state of the class by hiding instance variables and only allowing them to be changed through methods that the class makes publicly available.
+You declare instance variables as `private` to safely *encapsulate* state. This restricts access to the internal state of the class by hiding instance variables and only allowing them to be changed through methods that the class makes publicly available.
 
 In other words, a class controls its internal state, and ensures it remains consistent, by declaring its instance variables `private`.
 
@@ -124,7 +124,7 @@ The basic `Book` class is now complete.
 
 Test your getters and setters by creating an instance of `Book`, setting values for `title`, `author`, and `price`, and then getting and displaying the values.
 
-Open `Bookstore.java`, if not already open, and enter the following code below the "Step Three" comment line as shown.
+Open `Bookstore.java`, if not already open, and enter the following code under the "Step Three" comment line as shown.
 
 ```java
 // Step Three: Test the getters and setters
@@ -145,7 +145,7 @@ Title: A Tale of Two Cities, Author: Charles Dickens, Price: $14.99
 
 ## Step Four: Add constructors to the `Book` class
 
-Getters and setters are great, but sometimes they can be awkward to use. It might be better to include the title, author, and price when creating an instance of a `Book` instead of creating the instance and assigning a value to each instance variable one at a time.
+Getters and setters are great, but sometimes they can be tedious to use. It might be better to include the title, author, and price when creating an instance of a `Book` instead of creating the instance and assigning a value to each instance variable one at a time.
 
 Assigning a value to each instance variable one at a time involves additional typing, which might lead to errors. For example, forgetting to set one of the instance variables might put the object into an *inconsistent state*.
 
@@ -181,7 +181,7 @@ public Book(String title, String author, double price) {
 }
 ```
 
-Because once you provide a custom constructor, Java no longer generates the default one, and there is now only one way to create a new `Book` by giving the book a title, an author, and a price.
+Once you provide a custom constructor, Java no longer generates the default one, and there is now only one way to create a new `Book` by giving the book a title, an author, and a price.
 
 Consequently, you also need to provide the default constructor so the original getter and setter test code continues to work:
 
@@ -192,7 +192,7 @@ public Book() {
 
 ## Step Five: Test the `Book` constructors
 
-To test the `Book` constructor, create two additional instances of `Book` using the custom constructor, and display the results:
+To test the `Book` constructor, create two additional instances of `Book` using the custom constructor, and display the results. Under the "Step Five" comment in `Bookstore.java`, add:
 
 ```java
 // Step Five: Test the Book constructor
@@ -205,7 +205,7 @@ System.out.println("Title: " + threeMusketeers.getTitle() + ", Author: " + three
 System.out.println("Title: " + childhoodEnd.getTitle() + ", Author: " + childhoodEnd.getAuthor() + ", Price: $" + childhoodEnd.getPrice());
 ```
 
-The following results are displayed after you've entered and saved the test code and re-run `Bookstore`:
+The following results appear after you've entered and saved the test code and re-run `Bookstore`:
 
 ```
 Welcome to the Tech Elevator Bookstore
@@ -267,7 +267,7 @@ The `ShoppingCart` class represents a collection of books that a customer wants 
 
 Once again, open the `src/main/java` folders in the Project Explorer. Right-click on the `com.techelevator` package and select **New > Java Class**.
 
-Next, type in `ShoppingCart` as the name. You don't need to modify the default values. Then, press Enter to create the class.
+Next, type in `ShoppingCart` as the name. You don't need to modify the default values. Then, press **Enter** to create the class.
 
 You need a single instance variable to store the book objects in the shopping cart. Enter the following code into `ShoppingCart.java`:
 
@@ -277,11 +277,11 @@ private List<Book> booksToBuy = new ArrayList<>();
 
 > Note: You'll need to import `java.util.List` and `java.util.ArrayList`.
 
-You may have noticed that `Book` is missing from `ArrayList<>`. Recall the *diamond operator* `<>` is a bit of *syntactic sugar* that says, "Use the data type given in the `List<T>`."
+Notice that `Book` is missing from `ArrayList<>`. Recall the *diamond operator* `<>` is a bit of *syntactic sugar* that says, "Use the data type given in the `List<T>`."
 
 Since there is only the one instance variable, and it's automatically instantiated as an empty list of books, you don't need a custom constructor. The default constructor works fine.
 
-However, books do need to be added to the list, so the `ShoppingCart` needs an `add()` method. The method takes an instance of `Book` that's the book to add to the list.
+However, you do need to be able to add books to the list, so the `ShoppingCart` needs an `add()` method. This method takes an instance of `Book` that's the book to add to the list.
 
 Type the following code in `ShoppingCart.java`:
 
@@ -325,7 +325,7 @@ public String receipt() {
 
 The `ShoppingCart` is complete.
 
-Take a minute to review how the state of `ShoppingCart` is encapsulated. The instance variable `booksToBuy` is declared `private` with the only way to alter it through the public `add()` method.
+Take a minute to review how you have encapsulated the state of `ShoppingCart`. You declared the instance variable `booksToBuy` as `private` with the only way to alter it through the public `add()` method.
 
 You saw this same pattern of `private` instance variables and `public` methods in the `Book` class, and you'll see it in almost every class you write.
 

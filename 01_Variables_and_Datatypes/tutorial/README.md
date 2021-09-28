@@ -22,7 +22,7 @@ The requirements of this program are:
 * Given the number of people who ordered, calculate each person's share of the bill using the grand total, split evenly.
 * As a bonus feature, given the total number of cookies available on the dessert tray, calculate how many cookies each guest may eat.
 
-## Step one: Declare and initialize variables
+## Step One: Declare and initialize variables
 
 Based on the requirements, you know that you'll need the total cost of the menu items ordered, a tip percentage, and the number of guests. So, you'll need to create variables to hold these values, and initialize each variable. You must think of simple, meaningful variable names so that it's clear what your program does. These are good names:
 
@@ -36,9 +36,9 @@ Now you must think about data types:
 * `numberOfGuests` is numeric and is a whole number, so make it an `int`.
 * `tipPercent` is usually determined in whole percentages (15%, 18%, 20%), so make it an `int`.
 
-Look at the code in the `Tutorial.java` file. Step one has been completed for you:
+Look at the code in the `Tutorial.java` file. Step One has been completed for you:
 
-``` java
+```java
 /******************************************************************************/
 // Step 1: Declare and initialize variables
 /******************************************************************************/
@@ -69,13 +69,13 @@ Cost of dinner: $120.0
 
 Don't worry too much about the format of the number. Later, you'll learn how to print numbers in the exact format that you need, but for now, `120.0` works fine.
 
-## Step two: Calculate the sales tax and tip
+## Step Two: Calculate the sales tax and tip
 
 Given the cost of dinner and the tip percentage, you can calculate the amount of tip, and given a sales tax percentage, you can calculate the tax amount. These calculations are *arithmetic expressions*, and you store the results of these expressions in variables.
 
 First, calculate the sales tax. After the **// Step 2:** comment, add these lines:
 
-``` java
+```java
 final double SALES_TAX_PERCENT = 7.5;
 double taxAmount;
 taxAmount = SALES_TAX_PERCENT / 100 * costOfDinner;
@@ -122,7 +122,7 @@ Take a look at this line:
 double tipAmount = tipPercent / 100 * costOfDinner;
 ```
 
-Recall that `tipPercent` is type `int`. The literal value `100` is also `int`. When Java multiplies two `int` values, the result is `int`. Java drops the decimal portion of the result. So instead of the expected `0.18` as a result of this division, Java gives you `0`. Then Java multiplies that intermediate result by `costofDinner` (a `double`), resulting in `0.0`.
+Recall that `tipPercent` is type `int`. The literal value `100` is also `int`. When Java divides two `int` values, the result is `int`. Java drops the decimal portion of the result. So instead of the expected `0.18` as a result of this division, Java gives you `0`. Then Java multiplies that intermediate result by `costofDinner` (a `double`), resulting in `0.0`.
 
 There are many ways to fix this issue. You could change `tipPercent` to type `double`, or you can change the other operand, `100`, to type `double`.
 
@@ -146,13 +146,13 @@ Tip: $21.599999999999998
 The program now calculates the tip properly. Remember that due to the imprecision of decimals, you can sometimes see formatting issues as you see here. Don't worry about this for now—you'll learn how to take care of these later.
 
 
-## Step three: Calculate the amount per person
+## Step Three: Calculate the amount per person
 
 Now calculate the per-guest share by adding the cost of dinner, tax, and tip, and then dividing by the number of guests.
 
 After the **// Step 3:** comment, add these lines:
 
-``` java
+```java
 double amountPerPerson = costOfDinner + taxAmount + tipAmount / numberOfGuests;
 // Display the amount per person
 System.out.println("Amount per person: $" + amountPerPerson);
@@ -174,17 +174,17 @@ But $120 plus tax and tip divided among four people doesn't equal $134.40. It lo
 
 Look again at this line:
 
-``` java
+```java
 double amountPerPerson = costOfDinner + taxAmount + tipAmount / numberOfGuests;
 ```
 
 Remember the concept of operator precedence in arithmetic expressions. Multiplication and division have a *higher precedence* than addition and subtraction. This means that Java first performs the division of `tipAmount / numberOfGuests`, then adds that result to `costOfDinner + taxAmount`.
 
-What you want is to divide *the sum of dinner, tax, and tip* by the number of guests. You use parentheses to indicate which expressions should be evaluated first.
+What you want is to divide *the sum of dinner, tax, and tip* by the number of guests. You use parentheses to indicate which expressions to evaluate first.
 
 *Replace* this calculation with one that uses parentheses to override the default operator precedence:
 
-``` java
+```java
 double amountPerPerson = (costOfDinner + taxAmount + tipAmount) / numberOfGuests;
 ```
 
@@ -200,17 +200,13 @@ Tip: $21.599999999999998
 Amount per person: $37.65
 ```
 
-## Step four: Determine how much dessert each guest gets
+## Step Four: Determine how much dessert each guest gets
 
 The meal is over, and the guests receive some sort of after-dinner treats to share, such as fortune cookies or mints. Now, you need to add code to determine how many cookies each guest gets to eat and the number left over after each guest has eaten.
 
 Under the **Step 4:** comment, add this code:
 
-``` java
-/******************************************************************************/
-// Step 4: Given the total number of dessert pieces, determine the number each
-//      guest gets, and the number left over after each guest eats their pieces.
-/******************************************************************************/
+```java
 // Declare and initialize the number of dessert pieces
 int numberOfCookies = 9;
 int numberCookiesPerGuest = numberOfCookies / numberOfGuests;

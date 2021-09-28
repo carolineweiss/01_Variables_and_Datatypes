@@ -20,7 +20,7 @@ Your new class hierarchy looks like this:
 
 ![Class hierarchy](./img/class-hierarchy1.excalidraw.png "Bookstore class hierarchy")
 
-Whenever you write code that uses inheritance, you should give it the "is-a" test. Can you say that a book IS A media item, and that a movie IS A media item? Considering what the bookstore sells, these statements are true.
+Whenever you write code that uses inheritance, use the "is-a" test. Can you say that a book IS A media item, and that a movie IS A media item? Considering what the bookstore sells, these statements are true.
 
 ## Step One: Use `toString()` for a string representation of `Book`
 
@@ -105,11 +105,11 @@ Now you must *refactor* your book code. Refactoring means that you change the fo
 
 IntelliJ includes some *refactoring tools* that can help you do this type of work. To split `Book` into a superclass and subclass, right-click on the `Book` class in the Project window. Then select **Refactor > Extract Superclass...** from the menu.
 
-In the dialog box that appears, type `MediaItem` as the Superclass name, and in the list, check the `title` and `price` properties and the `getTitle()`, `setTitle()`, `getPrice()`, and `setPrice()` methods. These are the members to remove from `Book` and add to the new superclass, `MediaItem`. Click the *Refactor* button:
+In the dialog box that appears, type `MediaItem` as the Superclass name, and in the list, check the `title` and `price` properties and the `getTitle()`, `setTitle()`, `getPrice()`, and `setPrice()` methods. These are the members to remove from `Book` and add to the new superclass, `MediaItem`. Click the **Refactor** button:
 
 ![Extract MediaItem](./img/extract-mediaitem.png "Extract MediaItem")
 
-If IntelliJ asks about replacing usages, click *No*. If you're prompted to add the file to git, choose *Cancel*.
+If IntelliJ asks about replacing usages, click **No**. If you're prompted to add the file to git, choose **Cancel**.
 
 > ### Note: What `refactor` > `Extract Superclass` did
 > You asked IntelliJ to refactor your code by extracting a superclass from the code so that you now have a superclass (`MediaItem`) and a subclass (`Book`). Look at your code to see the changes.
@@ -126,7 +126,7 @@ If IntelliJ asks about replacing usages, click *No*. If you're prompted to add t
 1. Change the type of `booksToBuy` from `List<Book>` to `List<MediaItem>`.
 2. Change the name of `booksToBuy`, since that name no longer accurately reflects what the list holds.
 
-First, rename the variable using refactor tools. Right-click on the variable `booksToBuy` in its declaration, then select **Refactor -> Rename...**. Then, without clicking anything else, type `itemsToBuy`.
+First, rename the variable using refactor tools. Right-click on the variable `booksToBuy` in its declaration, then select **Refactor > Rename...**. Then, without clicking anything else, type `itemsToBuy`.
 
 IntelliJ replaces the variable name not only on the line you're typing in, but for every usage of the variable `booksToBuy`. Press `Enter` when you finish typing to accept the change.
 
@@ -171,11 +171,11 @@ You've done a lot of work here, and to an outside observer, nothing has changed.
 
 ## Step Three: Add the `Movie` class
 
-This adaptability becomes apparent when you add the `Movie` class.  `Movie` is just another subclass of `MediaItem`.
+This adaptability becomes apparent when you add the `Movie` class.  `Movie` is another subclass of `MediaItem`.
 
 ### Add a class
 
-Add a new class by right-clicking on the `com.techelevator` package in Project window and selecting **New -> Java Class**. In the dialog, type "Movie" and press **Enter**. IntelliJ creates a new file called `Movie.java` which contains the new class.
+Add a new class by right-clicking on the `com.techelevator` package in Project window and selecting **New > Java Class**. In the dialog, type "Movie" and press **Enter**. IntelliJ creates a new file called `Movie.java` which contains the new class.
 
 ### Extend `MediaItem`
 

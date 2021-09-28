@@ -1,4 +1,4 @@
-# Inheritance
+# Inheritance exercise
 
 The purpose of this exercise is to practice writing code that uses the Object-Oriented Programming principle of inheritance.
 
@@ -21,20 +21,20 @@ After completing this exercise, you'll be able to:
 * Code is presented in a clean, organized format.
 * Code is appropriately encapsulated.
 * Inheritance is used appropriately to avoid code duplication.
-* The code meets the specifications defined below.
+* The code meets the specifications defined in the remainder of this document.
 
-### Bank teller application
+## Bank teller application
 
 **Notes for All Classes**
 - All attributes have `private` access.
-- X in the get column indicates the attribute **must have a `get` accessor**.
-- X in the set column indicates the attribute **must have a `set` accessor**.
+- X in the get column indicates the attribute *must have a `get` accessor*.
+- X in the set column indicates the attribute *must have a `set` accessor*.
 
-#### Instructions
+### Instructions
 
 Create three new classes to represent a bank account, savings account, and a basic checking account.
 
-#### Step One: Implement the `BankAccount` class
+### Step One: Implement the `BankAccount` class
 
 The `BankAccount` class represents a basic checking or savings account at a bank.
 
@@ -61,17 +61,17 @@ A `CheckingAccount` "is-a" `BankAccount`, but it also has some additional rules:
 
 | Override Method | Description                                                                                                                                                          |
 | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| withdraw        | If the balance falls below $0.00 and is less than -$100.00, a $10.00 overdraft fee is also charged against the account.                                                                            |
-|        | Checking account can't be overdrawn by $100.00 or more. If a withdrawal request leaves the account $100 or more overdrawn, it fails and the balance remains the same.<br><br> For example, if the current balance is -$89.00, and the amount to withdraw is $10.00, the resulting balance is -$99.00. The withdraw is permitted since the new balance is less than -$100.00. The $10.00 overdraft fee is then charged against the account, resulting in a final balance of -$109.00.<br><br>A withdrawal of $11.00 in the same situation fails because the new balance is -$100.00 which is equal to ***but not less than*** the limit of -$100.00. |
+| withdraw        | If the balance falls below $0.00 but is still greater than -$100.00, a $10.00 overdraft fee is also charged against the account. |
+|        | A request to overdraw a checking account by $100.00 or more (before overdraft fee) fails and the balance remains the same.<br><br> For example, if the current balance is -$89.00, and the amount to withdraw is $10.00, the resulting balance is -$99.00. The withdrawal is permitted since the new balance is greater than -$100.00. The $10.00 overdraft fee is then charged against the account, resulting in a final balance of -$109.00.<br><br>A withdrawal of $11.00 in the same situation fails because the new balance would be -$100.00 which is equal to, *not greater than*, the lower limit of -$100.00. |
 
-#### Step Three: Implement the `SavingsAccount` class
+### Step Three: Implement the `SavingsAccount` class
 
 A `SavingsAccount` "is-a" `BankAccount`, but it also has some additional rules:
 
 | Override Method | Description                                                                                                                              |
 | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| withdraw        | If the remaining balance is less than $150 when a withdrawal is made, an additional $2 service charge is withdrawn from the account.       |
-|         | If a withdrawal is requested for more than the current balance, the withdrawal fails and the balance remains the same. No fees are incurred. |
+| withdraw        | If the remaining balance is less than $150.00 after a withdrawal is made, an additional $2.00 service charge is withdrawn from the account. |
+|         | If a withdrawal is requested that would result in a negative balance (including the service charge), the withdrawal fails and balance remains the same. No fees are incurred. |
 
 
 _Sample usage_

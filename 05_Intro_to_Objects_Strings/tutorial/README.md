@@ -2,8 +2,8 @@
 
 In this tutorial, you'll practice creating strings and calling methods on the `String` class. By the end of this tutorial, you'll have written code that:
 
-- Uses the `new` operator to create objects of the String class.
-- Calls some common String methods to interrogate and manipulate strings.
+- Uses the `new` operator to create objects of the `String` class.
+- Calls some common string methods to interrogate and manipulate strings.
 - Properly compares two string values.
 
 ## Getting started
@@ -16,29 +16,29 @@ To get started, follow these steps:
 
 You'll see the starter code for this project. All of your work will be in the `main` method of this class.
 
-## Step One: Create Strings
+## Step One: Create strings
 
-In the first part of this tutorial, you'll create new strings a few different ways. `String` is a *reference* type, which means that the data that makes up a string is stored in Heap memory, and a reference (the memory address or location) of that data is actually stored in the `String` variable on the Stack. Whenever you need to create a new instance of a reference type, you use the `new` operator.
+In the first part of this tutorial, you'll create new strings in several ways. `String` is a *reference* type, which means that the data that makes up a string is stored in Heap memory, and a reference (the memory address or location) of that data is stored in the `String` variable on the Stack. Whenever you need to create a new instance of a reference type, you use the `new` operator.
 
 ### From a `char` array
-At its heart, a String is an array of characters. As such, you can create a new string from an array of characters with the `new` operator. Under the `Step 1:` comment in your code, type or paste the following:
+At its heart, a string is an array of characters. As such, you can create a new string from an array of characters with the `new` operator. Under the `Step 1:` comment in your code, type or paste the following:
 
-``` java
+```java
 // Create a new string from an array of characters
 char[] helloChars = new char[] {'h', 'e', 'l', 'l', 'o', '!'};
 String greeting = new String(helloChars);
 System.out.println("Greeting: " + greeting);
 ```
 
-In that code, you used the `new` operator to allocate a chunk of Heap memory large enough to store a string containing the characters "hello!". The `new` operator returned the address of the newly created string, and you stored that address into the `greeting` variable.
+In that code, you used the `new` operator to allocate a chunk of Heap memory large enough to store a string containing the characters `h`, `e`, `l`, `l`, `o`, and `!`. The `new` operator returned the address of the newly created string, and you stored that address into the `greeting` variable.
 
 Run the program, and you'll see `Greeting: hello!` on the console.
 
 ### From a string literal
 
-Perhaps a more straightforward version of `new` allows you to pass a *string literal*, which is enclosed in double-quotes. Under your previous code, type:
+Another way to create a new string is to pass a *string literal*, which is enclosed in double-quotes. Under your previous code, type this:
 
-``` java
+```java
 // You can also create a string by passing in a literal value, in double-quotes
 String salutation = new String("Welcome my friend");
 System.out.println("Salutation: " + salutation);
@@ -52,11 +52,11 @@ Salutation: Welcome my friend
 
 ### Using the string literal syntax
 
-In Java, you must use the `new` keyword to request memory for a new instance of *any* reference type -- with one notable exception. Since strings are so frequently used, Java allows you to *assign* a string literal to a variable. The Java compiler recognizes this as a request for new memory.
+Since strings are so frequently used, Java allows you to *assign* a string literal to a variable. The Java compiler recognizes this as a request for new memory.
 
 Add the following code:
 
-``` java
+```java
 // Java allows you to skip the *new* operator when creating a new String
 String toast = "May the compiler rise up to meet you.";
 System.out.println("Toast: " + toast);
@@ -74,35 +74,35 @@ Toast: May the compiler rise up to meet you.
 
 Next, you'll practice using some of the more common methods on the `String` class. These methods either give you information about a string, or use a string to create a new string that has been changed in some way.
 
-First, you'll ask the user to type in a sentence, and then you''ll call methods to get variations of that sentence to display to the user.
+First, you'll ask the user to type in a sentence, and then you'll call methods to get variations of that sentence to display to the user.
 
-> In these examples, the user is typing "The quick brown fox jumps over the lazy dog." You can type this or any other sentence at the prompt.  Feel free to experiment; change the input sentence and see how the output changes."
+> In these examples, the user is typing "The quick brown fox jumps over the lazy dog." You can type this or any other sentence at the prompt. Feel free to experiment; change the input sentence and see how the output changes.
 
 Under the `Step 2:` comment, type the following:
 
-``` java
+```java
 // Prompt the user to enter a sentence
 System.out.print("Please type a sentence: ");
 Scanner scanner = new Scanner(System.in);
 String sentence = scanner.nextLine();
 ```
 
-This code prompts the user to type a message and waits for the user to type something and press `<Enter>`. Then `sentence` will hold the address of the string value the user typed.
+This code prompts the user to type a message and waits for the user to type something and press **Enter**. Then `sentence` will hold the address of the string value the user typed.
 
 First, echo the value back to the user:
 
-``` java
+```java
 // Print the sentence back to the user
 System.out.println(sentence);
 ```
 
-If you run the program, you'll see the message `Please type a sentence: ` on the console. The program is waiting for you to type something. Click in the console window, and type a sentence, then press the `<Enter>` key. You'll see the same sentence printed on the next line.
+If you run the program, you'll see the message `Please type a sentence: ` on the console. The program is waiting for you to type something. Click in the console window, and type a sentence, then press the **Enter** key. You'll see the same sentence printed on the next line.
 
 ### `toUpperCase()` and `toLowerCase()`
 
-Use these methods to transform the original sentence by ether making every character uppercase or lowercase. Then print the results to the user:
+Use these methods to transform the original sentence by either making every character uppercase or lowercase. Then print the results to the user:
 
-``` java
+```java
 // Print the sentence in all upper-case
 String uppercaseSentence = sentence.toUpperCase();
 System.out.println(uppercaseSentence);
@@ -126,9 +126,9 @@ The `length()` method returns how many characters long the string is.
 
 The `indexOf()` method allows you to find the first occurrence of a smaller string within the string.
 
-You'll use these two methods to report to the user the length of the first word in the sentence. Type this code:
+You'll use these two methods to report the length of the first word in the sentence to the user. Type this code:
 
-``` java
+```java
 // Find the first space character
 int firstSpace = sentence.indexOf(" ");
 // Report the length of the first word
@@ -168,7 +168,7 @@ Now you'll use the `replace()` method to locate a substring inside the string, a
 
 Add the following code:
 
-``` java
+```java
 // Replace the word "the" with "the one and only"
 System.out.println(sentence.replace("the", "the one and only"));
 ```
@@ -194,9 +194,9 @@ Did you notice the difference? In the first example, the word *The* wasn't a mat
 
 ### Split the sentence into words and reassemble it
 
-Now you are going to change the form of `sentence` from a string into an array of strings, each element representing one word. To do that, use the `split()` method:
+Now you'll change the form of `sentence` from a string into an array of strings, each element representing one word. To do that, use the `split()` method:
 
-``` java
+```java
 // list the words (split)
 String[] words = sentence.split(" ");
 System.out.println("The words in this sentence:");
@@ -205,7 +205,7 @@ for (String word : words){
 }
 ```
 
-In the first line, `split()` looks for the *delimiter* (also known as the *separator*) within the string, and "breaks" the string up every time it finds that delimiter. You passed in a single space (" ") character as the delimiter. The return value from that method is an array of the substrings that fall between the delimiters. The delimiters are stripped away, and don't end up in the result array.
+In the first line, `split()` looks for the *delimiter*, or *separator*, within the string, and "breaks" the string up every time it finds that delimiter. You passed in a single space (" ") character as the delimiter. The return value from that method is an array of the substrings that fall between the delimiters. The delimiters are stripped away, and don't end up in the result array.
 
 The final three lines use a *foreach* loop to list the individual words on the console. The output looks like this:
 
@@ -246,7 +246,7 @@ The-->quick-->brown-->fox-->jumped-->over-->the-->lazy-->dog.
 
 You've called methods to uppercase, lowercase, replace, split, and join the string that's referenced by the `sentence` variable. As a reminder that *strings are immutable*, print out the original string that was typed by the user:
 
-``` java
+```java
 // Print the initial sentence. Notice it has not changed.
 System.out.println(sentence);
 ```
@@ -261,7 +261,7 @@ Since `String` is a *reference* type, if you use the `==` operator to compare tw
 
 First, prompt the user to enter the (not-so-well-kept) secret word. Under the `Step 3:` comment in your code, add this code:
 
-``` java
+```java
 // ***********  Step 3: Compare Strings  *************
 String secretWord = "Secret!";
 System.out.print("Enter the secret word (hint: it's '" + secretWord + "') ");
@@ -272,7 +272,7 @@ When this code runs and the user types a word, that word will be in `userSecretW
 
 Now, compare these strings using both the `==` operator and the `equals()` method to see the difference:
 
-``` java
+```java
 // Compare using ==
 boolean matchEqualityOperator = secretWord == userSecretWord;
 System.out.println("Using '==': " + matchEqualityOperator);
@@ -294,7 +294,7 @@ Using '.equals(): true
 
 But what if you type "secret!"? If you try that, you'll find that the result is `false`. The `equals()` method respects case, so an uppercase "S" and lowercase "s" are considered different. If you would rather consider uppercase and lowercase letters as the same, use `equalsIgnoreCase()`:
 
-``` java
+```java
 // Compare using equalsIgnoreCase()
 boolean matchEqualsIgnoreCase = secretWord.equalsIgnoreCase(userSecretWord);
 System.out.println("Using '.equalsIgnoreCase(): " + matchEqualsIgnoreCase);
@@ -304,10 +304,10 @@ This time if you type "SECRET!", "secret!" or "Secret!", the result will be `tru
 
 ## Next steps
 
-You've begun to learn about the `String` class and some of its methods. You can explore more string methods in the [Java documentation.](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html#method.summary)
+You've begun to learn about the `String` class and some of its methods. You can explore more string methods in the [Java documentation.](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html)
 
 Try combining the methods you have learn to solve more complex problems. For example:
-- Can you find the number of words in a sentence? (Hint: use `split()` and `Array.length`)
+- Can you find the number of words in a sentence? (Hint: use `split()` and the `length` property of the resulting array)
 - Can you get the last character in a string? (Hint: use `substring()` and `length()`)
 
 
