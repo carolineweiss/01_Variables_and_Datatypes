@@ -9,12 +9,9 @@ public class Exercises {
 	 sleepIn(true, false) → false
 	 sleepIn(false, true) → true
 	 */
-	public boolean sleepIn(boolean weekday, boolean vacation) {
-		return false;
-	}
+	boolean
 
 
-	 */
 
 	/*
 	 2. We have two monkeys, a and b, and the parameters aSmile and bSmile indicate if each is smiling.
