@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ExercisesTest {
 
-	private Exercises exercises = new Exercises();
+	private final Exercises exercises = new Exercises();
 
 	/*
 	 sleepIn(false, false) → true
