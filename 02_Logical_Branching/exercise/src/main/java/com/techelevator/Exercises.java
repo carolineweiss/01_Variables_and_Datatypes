@@ -250,22 +250,18 @@ public class Exercises<talking, hour, a> {
 	 */
 	public int max1020(int a, int b) {
 		if ((a >= 10 && a <= 20) && (b >= 10 && b <= 20)) {
-			if (a > b){
-				return a;}
-			else {
-				return b;}
-		}
-
-		else if ((a >= 10 && a <= 20) && (b < 10 || b > 20)) {
+			if (a > b) {
+				return a;
+			} else {
+				return b;
+			}
+		} else if ((a >= 10 && a <= 20) && (b < 10 || b > 20)) {
 			return a;
-		}
-		else if ((b >= 10 && b <= 20) && (a < 10 || a > 20)) {
+		} else if ((b >= 10 && b <= 20) && (a < 10 || a > 20)) {
 			return b;
 		}
 		return 0;
 	}
-
-
 
 
 	/*
@@ -306,7 +302,7 @@ public class Exercises<talking, hour, a> {
 	//stylish clothes 0..10, date stylish dates clothes 0...10
 	//return 0 if no table , return 1 if might get table , return 2 if you did not get table
 	// 8+ stylish = 2 (yes)
-	  //exception if date & you <= 2 , result = 0, otherwise 1
+	//exception if date & you <= 2 , result = 0, otherwise 1
 	public int dateFashion(int you, int date) {
 		if (you <= 2 || date <= 2) {
 			return 0;
@@ -316,6 +312,7 @@ public class Exercises<talking, hour, a> {
 		}
 		return 2;
 	}
+
 	/*
 	 18. The squirrels in Palo Alto spend most of the day playing. In particular, they play if the temperature
 	 is between 60 and 90 (inclusive). Unless it is summer, then the upper limit is 100 instead of 90. Given
@@ -325,16 +322,15 @@ public class Exercises<talking, hour, a> {
 	 squirrelPlay(95, true) → true
 	 */
 	public boolean squirrelPlay(int temp, boolean isSummer) {
-		if(isSummer == false && temp >= 60 && temp <= 90) {
+		if (isSummer == false && temp >= 60 && temp <= 90) {
 			return true;
-		}
-		else if(isSummer == true && temp >= 60 && temp <= 100) {
+		} else if (isSummer == true && temp >= 60 && temp <= 100) {
 			return true;
 		}
 		return false;
 	}
 
-    /*
+	/*
      19. Dessert Island Diner believes a meal isn't a meal without dessert. All meals come with
      a free dessert.
 
@@ -345,6 +341,11 @@ public class Exercises<talking, hour, a> {
 
      For instance, if the amount of the meal was $7, and it is your birthday, $5 is added to
      $7 when determining the dessert category, which means you would qualify for a "special".
+//standard <= 10, 15 <= special , spend <15 ginormous
+// unless - birthday = +5
+//ie birthday spend 7 but they add 5 = special
+// (meal amount <= 10.00 == standard) || (meal amount <= 15 == special) || (meal amount > 15 == ginormous)
+	// else ( isBirthday + 5.00 ) if it is birthday then meal amount + 5
 
      yourCakeAndEatItToo(4.99, false) → "standard"
      yourCakeAndEatItToo(4.99, true) → "standard"
@@ -354,9 +355,34 @@ public class Exercises<talking, hour, a> {
      yourCakeAndEatItToo(10.00, true) → "special"
      yourCakeAndEatItToo(11.00, false) → "special"
      */
-    public String yourCakeAndEatItToo(double mealAmount, boolean isBirthday) {
-        return "";
-    }
+	public String yourCakeAndEatItToo(double mealAmount, boolean isBirthday) {
+//if is birthday and meal is 10 or less it will be standard if mealamount + 5 <= 10)
+		if (isBirthday) {
+			if (mealAmount <= 10) {
+				if (mealAmount + 5 <= 10) {
+					return "standard";
+				} else return "special";
+			} else if (mealAmount <= 15) {
+				if (mealAmount > 10) {
+					return "ginormous";
+				} else return "special";
+			} else if (mealAmount > 15) {
+				return "ginormous";
+			}
+
+
+		} else if (!isBirthday) {
+			if (mealAmount <= 10) {
+				return "standard";
+			} else if (mealAmount <= 15) {
+				return "special";
+			} else return "ginormous";
+		}
+
+
+		return "";
+	}
+
 
 	/*
 	 20. Given 2 ints, a and b, return their sum. However, sums in the range 10..19 inclusive, are forbidden,
@@ -367,9 +393,9 @@ public class Exercises<talking, hour, a> {
 	 */
 	public int sortaSum(int a, int b) {
 		int sum = a + b;
-		if(sum >= 10 && sum <= 19){
+		if (sum >= 10 && sum <= 19) {
 			return 20;
-		} else{
+		} else {
 			return sum;
 		}
 	}
@@ -377,29 +403,27 @@ public class Exercises<talking, hour, a> {
 	/*
 	 21. Given a day of the week encoded as 0=Sun, 1=Mon, 2=Tue, ...6=Sat, and a boolean indicating if we are
 	 on vacation, return a string of the form "7:00" indicating when the alarm clock should ring. Weekdays,
-	 the alarm should be "7:00" and on the weekend it should be "10:00". Unless we are on vacation -- then
-	 on weekdays it should be "10:00" and weekends it should be "off".
+	 the alarm should be "7:00" and on the weekend it should be "10:00". (Unless) we are on [vacation] -- then
+	 on [weekdays] it should be ["10:00"] and weekends it should be ["off"].
 	 alarmClock(1, false) → "7:00"
 	 alarmClock(5, false) → "7:00"
 	 alarmClock(0, false) → "10:00"
 	 */
 	public String alarmClock(int day, boolean vacation) {
-
-		if(vacation){
-			if(day == 6 || day == 0){
+		if (vacation == true) {
+			if ((day == 0) || (day == 6)) {
 				return "off";
-			} else{
-				return "10:00";
 			}
-		} else{
-			if(day >= 1 && day <= 5){
-				return "7:00";
-			} else{
-				return "10:00";
-			}
+			return "10:00";
 		}
+		else if ((day == 0) || (day == 6)) {
+			return "10:00";
+		}
+		else if ((day > 0) && (day < 6)) {
+			return "7:00";
+		}
+		return "";
 	}
-
 	/*
 	 22. Given a number n, return true if n is in the range 1..10, inclusive. Unless "outsideMode" is true,
 	 in which case return true if the number is less or equal to 1, or greater or equal to 10.
@@ -408,41 +432,42 @@ public class Exercises<talking, hour, a> {
 	 in1To10(11, true) → true
 	 */
 	public boolean in1To10(int n, boolean outsideMode) {
-		if(outsideMode){
-			if(n <= 1 || n >= 10){
+		if (outsideMode) {
+			if (n <= 1 || n >= 10) {
 				return true;
 			}
-			return false;
 		}
-		if(n >= 1 && n <= 10){
+		else if (n >= 1 && n <= 10) {
 			return true;
 		}
 		return false;
 	}
 
+
+
 	/*
 	 23. We'll say a number is special if it is a multiple of 11 or if it is one more than a multiple of 11.
 	 Return true if the given non-negative number is special.
-	 (Hint: Think "mod".)
+	 (Hint: Think "mod".) // n % 11 || n % 11 + 1
 	 specialEleven(22) → true
 	 specialEleven(23) → true
 	 specialEleven(24) → false
 	 */
 	public boolean specialEleven(int n) {
-		if(n % 11 <= 1){
+		if ( n % 11 == 0|| n % 11 == 1) {
 			return true;
 		}
 		return false;
 	}
 	/*
 	 24. Return true if the given non-negative number is 1 or 2 more than a multiple of 20.
-	 (Hint: Think "mod".)
+	 (Hint: Think "mod".) // true if (  n % 20 == 1 || n % 20 == 2 )
 	 more20(20) → false
 	 more20(21) → true
 	 more20(22) → true
 	 */
 	public boolean more20(int n) {
-		if(n % 20 == 1 || n % 20 == 2){
+		if (n % 20 == 1 || n % 20 == 2) {
 			return true;
 		}
 		return false;
