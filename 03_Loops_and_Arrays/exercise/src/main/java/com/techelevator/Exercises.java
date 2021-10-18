@@ -1,7 +1,7 @@
 package com.techelevator;
 
 public class Exercises {
-	
+
 	/*
 	 1. Given an array of ints, return true if 6 appears as either the first or last element in the array. 
 	 The array will be length 1 or more.
@@ -11,11 +11,11 @@ public class Exercises {
 	 */
 	public boolean firstLast6(int[] nums) {
 
-	 if ( (nums[0] == 6) ||  (nums[nums.length-1] == 6)) {
-		return true;
+		if ((nums[0] == 6) || (nums[nums.length - 1] == 6)) {
+			return true;
+		}
+		return false;
 	}
-      return false;
-}
 
 
 	/*
@@ -26,7 +26,7 @@ public class Exercises {
 	 sameFirstLast([1, 2, 1]) → true
 	 */
 	public boolean sameFirstLast(int[] nums) {
-		if    ((nums.length >= 1)   &&   (nums[0] == nums[nums.length-1]))  {
+		if ((nums.length >= 1) && (nums[0] == nums[nums.length - 1])) {
 			return true;
 		}
 
@@ -40,8 +40,9 @@ public class Exercises {
 	 */
 	public int[] makePi() {
 
-		return new int[] {3, 1, 4};
+		return new int[]{3, 1, 4};
 	}
+
 
 	/*
 	 4. Given 2 arrays of ints, a and b, return true if they have the same first element or they have 
@@ -52,13 +53,14 @@ public class Exercises {
 	 */
 	public boolean commonEnd(int[] a, int[] b) {
 
-		if((a[0] == b[0]) || (a[a.length - 1] == b[b.length - 1])){
+		if ((a[0] == b[0]) || (a[a.length - 1] == b[b.length - 1])) {
 			return true;
 		}
 
 
 		return false;
 	}
+
 
 	/*
 	 5. Given an array of ints length 3, return the sum of all the elements.
@@ -68,12 +70,13 @@ public class Exercises {
 	 */
 	public int sum3(int[] nums) {
 		int sum = 0;
-		for(int i = 0; i < nums.length; i++){
+
+		for (int i = 0; i < nums.length; i++) {
 			sum += nums[i];
 		}
-
 		return sum;
 	}
+
 
 	/*
 	 6. Given an array of ints length 3, return an array with the elements "rotated left" so {1, 2, 3} 
@@ -85,13 +88,13 @@ public class Exercises {
 	public int[] rotateLeft3(int[] nums) {
 
 
-		int z  = nums[0];
+		int z = nums[0];
 		nums[0] = nums[1];
 		nums[1] = nums[2];
 		nums[2] = z;
 
 
-		return new int[] {nums[0], nums[1], nums[2]};
+		return new int[]{nums[0], nums[1], nums[2]};
 	}
 
 	/*
@@ -103,16 +106,14 @@ public class Exercises {
    */
 	public int[] reverse3(int[] nums) {
 
-		int z  = nums[0];
+		int z = nums[0];
 		nums[0] = nums[2];
 		nums[2] = nums[0];
+		nums[1] = nums[1];
 
 
-		return new int[] {nums [0], nums[1], z};
+		return new int[]{nums[0], nums[1], z};
 	}
-
-
-
 
 
 	/*
@@ -124,15 +125,15 @@ public class Exercises {
      */
 	public int[] maxEnd3(int[] nums) {
 
-		int max ;
-		if (nums[0] > nums [2]){
+
+		int max;
+		if (nums[0] > nums[2]) {
 			max = nums[0];
 		} else max = nums[2];
 
-		for (int i =0; i < nums.length; i ++){
+		for (int i = 0; i < nums.length; i++) {
 			nums[i] = max;
 		}
-
 
 
 		return nums;
