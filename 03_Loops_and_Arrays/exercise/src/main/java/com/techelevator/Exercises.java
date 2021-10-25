@@ -87,15 +87,17 @@ public class Exercises {
 	 */
 	public int[] rotateLeft3(int[] nums) {
 
-
-		int z = nums[0];
-		nums[0] = nums[1];
+		//length = 3, return "rotated left" so (x[1],x[2],x[3] = x[3],x[2],x[1])
+		int x = nums[1];
 		nums[1] = nums[2];
-		nums[2] = z;
+		nums[2] = nums[3];
+		nums[3] = x;
 
 
-		return new int[]{nums[0], nums[1], nums[2]};
+			return new int[]{nums[3], nums[2], nums[1]};
+		}
 	}
+
 
 	/*
    7. Given an array of ints length 3, return a new array with the elements in reverse order, so

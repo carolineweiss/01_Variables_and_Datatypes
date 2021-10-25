@@ -10,10 +10,7 @@ public class Exercises<talking, hour, a> {
 	 sleepIn(false, true) → true
 	 */
 	boolean sleepIn(boolean weekday, boolean vacation) {
-		if (!weekday) {
-			return true;
-		}
-		if (vacation) {
+		if (!weekday || vacation) {
 			return true;
 		}
 		return false;
@@ -29,8 +26,13 @@ public class Exercises<talking, hour, a> {
 	 monkeyTrouble(true, false) → false
 	 */
 	boolean monkeyTrouble(boolean aSmile, boolean bSmile) {
-		return aSmile == bSmile;
+		if (aSmile && bSmile || !aSmile && !bSmile) {
+			return true;
+		} else {
+			return false;
+		}
 	}
+
 
 	/*
 	 3. Given two int values, return their sum. Unless the two values are the same, then return double their sum.
@@ -39,12 +41,13 @@ public class Exercises<talking, hour, a> {
 	 sumDouble(2, 2) → 8
 	 */
 	int sumDouble(int a, int b) {
-		int sum = a + b;
-		if (a == b) {
-			sum = sum * 2;
-		}
-		return sum;
+		int sum = (a + b) ;
 
+		if (a == b) {
+			return (sum * 2);
+		} else {
+			return sum;
+		}
 	}
 
 
@@ -58,14 +61,13 @@ public class Exercises<talking, hour, a> {
 	 diff21(-10) → 31
 	 */
 	public int diff21(int n) {
-		//return difference b/w n & 21
-		//except return double the absolute if n > 21
-		int difference = 21 - n;
+		int difference = (21 - n);
 
 		if (n > 21) {
-			difference = Math.abs(difference) * 2;
+			return (Math.abs(difference) * 2);
+		} else {
+			return Math.abs(difference);
 		}
-		return difference;
 	}
 
 
@@ -211,16 +213,11 @@ public class Exercises<talking, hour, a> {
 	 intMax(3, 2, 1) → 3
 	 */
 	public int intMax(int a, int b, int c) {
-		int max = 0;
-
-		if (a > b)
-			max = a;
-		else
-			max = b;
-		if (c > b)
-			max = c;
-
-		return max;
+		if (a > b && a > c)
+			return a;
+		else if (b > c)
+			return b;
+		else return c;
 	}
 
 	/*
@@ -540,15 +537,15 @@ public class Exercises<talking, hour, a> {
 	 answerCell(true, false, false) → false
 	 */
 	public boolean answerCell(boolean isMorning, boolean isMom, boolean isAsleep) {
-		if(isAsleep){
+		if (isAsleep) {
 			return false;
-		} else if(isMorning){
-			if(isMom){
+		} else if (isMorning) {
+			if (isMom) {
 				return true;
-			} else{
+			} else {
 				return false;
 			}
-		} else{
+		} else {
 			return true;
 		}
 	}
