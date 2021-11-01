@@ -7,6 +7,7 @@ import static org.junit.Assert.assertThat;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 import org.junit.Test;
 import org.junit.FixMethodOrder;
