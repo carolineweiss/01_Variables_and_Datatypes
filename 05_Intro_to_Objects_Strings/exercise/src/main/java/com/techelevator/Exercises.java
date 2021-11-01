@@ -131,12 +131,11 @@ public class Exercises {
 	 right2("Hi") → "Hi"
 	 */
 	public String right2(String str) {
-		int length = str.length();
-		String sub = str.substring(length - 2);
-		String sub2 = str.substring(0, length - 2);
-		return sub + sub2;
+		//0 1 2 3 4 -- 34 , 012 == return str.substring - 2 + str.substring(2, str.length())
 
-	}
+			return (str.substring(str.length()-2)+str.substring(0,str.length()-2));
+		}
+
 
 	/*
 	 Given a string, return a string length 1 from its front, unless front is false, in which case
@@ -147,8 +146,9 @@ public class Exercises {
 	 */
 	public String theEnd(String str, boolean front){
 
-		if (front) return str.substring(0, 1);
-		return str.substring(str.length() - 1);
+		var front1 = front;
+		if (front == true) return str.substring(0,1);
+		else return str.substring(str.length() - 1);
 
 	}
 
@@ -161,8 +161,9 @@ public class Exercises {
 	 */
 	public String withoutEnd2(String str){
 
-		if (str.length() <= 2) return "";
-		return str.substring(1, str.length() - 1);
+		if (str.length() < 2) return "";
+		return str.substring(1, str.length() -1);
+
 
 	}
 	/*
@@ -174,8 +175,7 @@ public class Exercises {
 	 */
 	public String middleTwo(String str) {
 
-		int len = str.length();
-		return str.substring(len / 2 - 1, len / 2 + 1);
+		return str.substring(str.length() / 2 - 1, (str.length() / 2 + 1));
 	}
 
 
@@ -188,9 +188,8 @@ public class Exercises {
 	 */
 	public boolean endsLy(String str) {
 
-		int len = str.length();
-		if (len < 2) return false;
-		return (str.substring(len - 2).equals("ly"));
+		if (str.length() < 2) return false;
+		return (str.substring(str.length() - 2).equals("ly"));
 
 	}
 
@@ -216,7 +215,7 @@ public class Exercises {
 	 twoChar("java", 3) → "ja"
 	 */
 	public String twoChar(String str, int index) {
-		if (index < 0 || index + 2 > str.length())
+		if ( index < 0 || index + 2 > str.length())
 			return str.substring(0, 2);
 		return str.substring(index, index + 2);
 	}
@@ -364,7 +363,7 @@ public class Exercises {
 		return count;
 	}
 
-	/*
+	/*![](../../../../../../../../../../../../../var/folders/dz/2h8vdgys14j6k17zm7jc6c400000gn/T/TemporaryItems/NSIRD_screencaptureui_uNOmyi/Screen Shot 2021-10-30 at 5.02.08 PM.png)
 	 Given a string, return a version where all the "x" have been removed. Except an "x" at the very start or end
 	 should not be removed.
 	 stringX("xxHxix") → "xHix"
